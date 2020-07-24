@@ -7,15 +7,21 @@ exports.seed = function(knex) {
       return knex('users').insert([
         {
           id: 1,
+          name: 'Cobra Garner',
           username: 'Cobrettie',
+          email: 'cobra@123.com',
           password: '1234',
-          user_type: 'admin'
+          role: 'admin',
+          country: 'usa'
         },
         {
           id: 2,
+          name: 'LynN G',
           username: 'Lynny',
+          email: 'lynn@gmail.com',
           password: '123456789',
-          user_type: 'student'
+          role: 'student',
+          available: '11pm to 7am'
         }
       ]);
     });
