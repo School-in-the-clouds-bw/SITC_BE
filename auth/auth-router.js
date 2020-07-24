@@ -19,7 +19,7 @@ router.get('/users', async (req, res) => {
 
 router.post('/register', async (req, res) => {
   try {
-    const { username, password, user_type } = req.body;
+    const { username, password, role } = req.body;
 
     const existingUser = await authModel.findBy({ username }).first()
     if (existingUser) {
@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
     const newUser = await authModel.addUser({
       username,
       password: await bcrypt.hash(password, 14),
-      user_type 
+      role 
     })
     if (newUser) {
       res.status(201).json({
@@ -64,6 +64,7 @@ router.post('/login', async (req, res) => {
     res.cookie('token', token)
     res.json({
       message: `Hello ${username}`,
+      role: user.role,
       token: token  // token for client, i do believe? ask  
     })
 
@@ -77,7 +78,7 @@ function generateToken(user) {
   const payload = {
     subject: user.id,
     username: user.username,
-    usertype: user.user_type
+    role: user.user_type
   }
 
   return jwt.sign(payload, process.env.JWT_SECRET)
