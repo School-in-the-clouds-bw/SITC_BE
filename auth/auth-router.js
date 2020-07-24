@@ -14,12 +14,15 @@ router.get('/users', async (req, res) => {
     res.status(200).json(users)
   } catch(err) {
     logError(err)
+    res.status(500).json({
+      message: 'Could not get all users'
+    })
   }
 })
 
 router.post('/register', async (req, res) => {
   try {
-    const { username, password, role } = req.body;
+    const { username, password } = req.body;
 
     const existingUser = await authModel.findBy({ username }).first()
     if (existingUser) {
@@ -29,9 +32,8 @@ router.post('/register', async (req, res) => {
     }
 
     const newUser = await authModel.addUser({
-      username,
+      ...req.body,
       password: await bcrypt.hash(password, 14),
-      role 
     })
     if (newUser) {
       res.status(201).json({
@@ -40,6 +42,9 @@ router.post('/register', async (req, res) => {
     }
   } catch(err) {
     logError(err)
+    res.status(500).json({
+      message: 'Could not create user'
+    })
   }
 })
 
@@ -71,6 +76,9 @@ router.post('/login', async (req, res) => {
 
   } catch(err) {
     logError(err)
+    res.status(500)>json({
+      message: 'Could not login'
+    })
   }
 })
 
