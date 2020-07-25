@@ -4,6 +4,7 @@
 https://school-in-the-cloud-be.herokuapp.com/
 
 ## Endpoints
+Must be logged in to view data
 
 ### Register
 POST request to 
