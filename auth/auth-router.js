@@ -22,7 +22,14 @@ router.get('/users', async (req, res) => {
 
 router.post('/register', async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, username, password } = req.body;
+
+    const existingEmail = await authModel.findBy({ email }).first()
+    if (existingEmail) {
+      res.status(409).json({
+        message: 'Email already in use'
+      })
+    }
 
     const existingUser = await authModel.findBy({ username }).first()
     if (existingUser) {
@@ -41,9 +48,9 @@ router.post('/register', async (req, res) => {
       })
     }
   } catch(err) {
-    logError(err)
+    logError(err),
     res.status(500).json({
-      message: 'Could not create user'
+      errorMessage: 'Could not create user, verify credentials, check connection'
     })
   }
 })
@@ -86,7 +93,7 @@ function generateToken(user) {
   const payload = {
     subject: user.id,
     username: user.username,
-    role: user.user_type
+    role: user.role
   }
 
   return jwt.sign(payload, process.env.JWT_SECRET)

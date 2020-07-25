@@ -4,8 +4,9 @@ function getAllUsers() {
   return db('users')
 }
 
-function addUser(user) {
-  return db('users').insert(user)
+async function addUser(user) {
+  const [id] = await db('users').insert(user, 'id');
+  return db('users').where({ id }).first();
 }
 
 function findBy(filter) {

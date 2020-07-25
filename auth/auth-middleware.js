@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken');
 function authenticate() {
   return async (req, res, next) => {
     try {
-      const token = req.headers.cookie
+      const token = req.headers.cookie // req.headers.token ... saw in TK or sum somewhere
       if (!token) {
         return res.status(401).json({
-          message: 'Invalid credentials'
+          message: 'Invalid credentials, you\'re probable not logged in...'
         })
       } else {
         next()
@@ -15,7 +15,9 @@ function authenticate() {
       console.log('Error: ', err)
     }
 
-    // jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    // try {
+    //   const token = req.header.token
+    //   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     //     if (err) {
     //       return res.status(401).json({
     //         message: 'Invalid credentials'
@@ -24,6 +26,10 @@ function authenticate() {
     //       next();
     //     }
     //   })
+
+    // } catch(err) {
+    //   console.log('Error: ', err)
+    // }
   }
 }
 

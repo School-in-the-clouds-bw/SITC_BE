@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const cookieParser = require('cookie-parser');
 const authMiddleware = require('./auth/auth-middleware.js');
 const authRouter = require('./auth/auth-router.js');
+const studentRouter = require('./routers/student/student-router.js');
 const tasksRouter = require('./routers/tasks-router.js');
 
 const server = express();
@@ -10,13 +12,15 @@ const server = express();
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
+server.use(cookieParser());
 
 server.use('/api/auth', authRouter)
-server.use('/api/tasks', tasksRouter)
+server.use('/api/student', authMiddleware(), studentRouter)
+server.use('/api/tasks', authMiddleware(), tasksRouter)
 
 server.get('/', (req, res) => {
   res.json({
-    message: 'sitc server running'
+    message: 'school in the cloud back end server running'
   })
 })
 
