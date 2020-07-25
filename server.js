@@ -4,8 +4,9 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const authMiddleware = require('./auth/auth-middleware.js');
 const authRouter = require('./auth/auth-router.js');
+const adminRouter = require('./routers/admin/admin-router.js');
 const studentRouter = require('./routers/student/student-router.js');
-const tasksRouter = require('./routers/tasks-router.js');
+const volunteerRouter = require('./routers/volunteer/volunteer-router.js');
 
 const server = express();
 
@@ -14,9 +15,10 @@ server.use(cors());
 server.use(express.json());
 server.use(cookieParser());
 
-server.use('/api/auth', authRouter)
-server.use('/api/student', authMiddleware(), studentRouter)
-server.use('/api/tasks', authMiddleware(), tasksRouter)
+server.use('/api/auth', authRouter);
+server.use('/api/admin', adminRouter);
+server.use('/api/student', authMiddleware(), studentRouter);
+server.use('/api/volunteer', authMiddleware(), volunteerRouter);
 
 server.get('/', (req, res) => {
   res.json({
