@@ -54,4 +54,20 @@ router.put('/tasks/:id', async (req, res) => {
   res
 })
 
+
+// DELETE task by id
+router.delete('/tasks/:id', async (req, res) => {
+  try {
+    const deletedTask = await adminModel.deleteTaskById(req.params.id)
+    res.status(202).json({
+      message: 'Task deleted successfully'
+    })
+  } catch(err) {
+    logError(err)
+    res.status(500).json({
+      message: 'Could not delete task'
+    })
+  }
+})
+
 module.exports = router;

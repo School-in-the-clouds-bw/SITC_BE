@@ -15,8 +15,14 @@ function updateTaskById(id, changes) {
   return db('tasks').where({ id }).update(changes)
 }
 
+// DELETE task
+function deleteTaskById(id) {
+  return db('tasks').where({ id }).del();
+}
+
 module.exports = {
   addTask,
   getAllTasks,
-  updateTaskById
+  updateTaskById,
+  deleteTaskById
 }
