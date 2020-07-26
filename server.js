@@ -16,7 +16,7 @@ server.use(express.json());
 server.use(cookieParser());
 
 server.use('/api/auth', authRouter);
-server.use('/api/admin', adminRouter);
+server.use('/api/admin', authMiddleware(), adminRouter);
 server.use('/api/student', authMiddleware(), studentRouter);
 server.use('/api/volunteer', authMiddleware(), volunteerRouter);
 
