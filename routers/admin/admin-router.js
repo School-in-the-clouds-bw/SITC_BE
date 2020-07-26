@@ -5,6 +5,7 @@ function logError(err) {
   console.log('Error: ', err)
 }
 
+
 // POST new task
 router.post('/tasks', async (req, res) => {
   try {
@@ -51,7 +52,6 @@ router.put('/tasks/:id', async (req, res) => {
       message: 'Could not update task'
     })
   }
-  res
 })
 
 

@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
 
     const newUser = await authModel.addUser({
       ...req.body,
-      password: await bcrypt.hash(password, 14),
+      password: await bcrypt.hash(password, process.env.HASH_LENGTH),
     })
     if (newUser) {
       res.status(201).json({
