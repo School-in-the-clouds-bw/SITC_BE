@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
 
     const newUser = await authModel.addUser({
       ...req.body,
-      password: await bcrypt.hash(password, process.env.HASH_LENGTH),
+      password: await bcrypt.hash(password, 14),
     })
     if (newUser) {
       res.status(201).json({
@@ -64,6 +64,7 @@ router.post('/login', async (req, res) => {
         message: 'Invalid credentials'
       })
     }
+    console.log('password', req.body.username)
 
     const validPassword = await bcrypt.compare(password, user.password)
     if (!validPassword) {
@@ -83,7 +84,7 @@ router.post('/login', async (req, res) => {
 
   } catch(err) {
     logError(err)
-    res.status(500)>json({
+    res.status(500).json({
       message: 'Could not login'
     })
   }

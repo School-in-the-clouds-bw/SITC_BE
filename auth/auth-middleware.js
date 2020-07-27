@@ -17,13 +17,13 @@ function authenticate() {
 
     try {
       const token = req.cookies.token
+      console.log('token', token)
       jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
           return res.status(401).json({
             message: 'Invalid credentials'
           })
         } else {
-          console.log('decoded', decoded)
           // res.status(200).json(decoded)
           next();
         }
