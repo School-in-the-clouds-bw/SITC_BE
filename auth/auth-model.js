@@ -5,7 +5,7 @@ function getAllUsers() {
 }
 
 function addUser(user) {
-  return db('users').insert(user, 'id');
+  return db('users').insert(user)
 }
 
 function findBy(filter) {
