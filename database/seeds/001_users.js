@@ -4,25 +4,72 @@ exports.seed = function(knex) {
   return knex('users').del()
     .then(function () {
       // Inserts seed entries
-      return knex('users').insert([
+      return knex('users')
+      .insert([
         {
-          id: 1,
-          name: 'Cobra Garner',
-          username: 'Cobrettie',
-          email: 'cobra@123.com',
-          password: '1234',
-          role: 'admin',
+          name: 'Jimmothiaus Zaydo',
+          username: 'jz4',
+          email: 'zaydo@gmail.com',
+          password: 'zman',
+          role: 'administrator',
           country: 'usa'
         },
         {
-          id: 2,
-          name: 'LynN G',
-          username: 'Lynny',
-          email: 'lynn@gmail.com',
-          password: '123456789',
+          name: 'Stacie Moore',
+          username: 'stacie',
+          email: 'staciem@gmail.com',
+          password: 'pw4598',
+          role: 'volunteer',
+          country: 'brazil'
+        },
+        {
+          name: 'Elizabeth Lynce',
+          username: 'bballergurl',
+          email: 'basketballislife@yahoo.com',
+          password: 'toofast4u',
           role: 'student',
-          available: '11pm to 7am'
-        }
+          country: 'usa'
+        },
+        {
+          name: 'John Row',
+          username: 'jrow18',
+          email: 'jrow@gmail.com',
+          password: 'pw123',
+          role: 'volunteer',
+          country: 'usa'
+        },
+        {
+          name: 'Abigail Smith',
+          username: 'agurl',
+          email: 'agurl@gmail.com',
+          password: 'pw123',
+          role: 'volunteer',
+          country: 'usa'
+        },
+        {
+          name: 'Bill Mayzer',
+          username: 'bm289',
+          email: 'bm289@gmail.com',
+          password: 'pw123',
+          role: 'administrator',
+          country: 'usa'
+        },
+        {
+          name: 'Lizz StunYa',
+          username: 'lgstunya',
+          email: 'missstunya@gmail.com',
+          password: 'pw123',
+          role: 'administrator',
+          country: 'europe'
+        },
+        {
+          name: 'Brandon Mundok',
+          username: 'racer290',
+          email: 'racer290@gmail.com',
+          password: 'pw123',
+          role: 'student',
+          country: 'france'
+        },
       ]);
     });
 };
