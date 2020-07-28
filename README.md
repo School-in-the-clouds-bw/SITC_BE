@@ -3,9 +3,9 @@
 ## API Link
 https://school-in-the-cloud-be.herokuapp.com/
 
-## Endpoints
-
 ## MUST BE LOGGED IN TO VIEW DATA
+
+## Endpoints
 
 ### Register
 POST request to 
