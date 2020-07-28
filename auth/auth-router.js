@@ -64,7 +64,6 @@ router.post('/login', async (req, res) => {
         message: 'Invalid credentials'
       })
     }
-    console.log('password', req.body.username)
 
     const validPassword = await bcrypt.compare(password, user.password)
     if (!validPassword) {
@@ -78,7 +77,7 @@ router.post('/login', async (req, res) => {
     res.json({
       message: `Hello ${username}`,
       role: user.role,
-      token: token  // token for client, i do believe? ask  
+      token: token 
     })
 
 
