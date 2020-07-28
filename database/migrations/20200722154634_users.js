@@ -11,12 +11,14 @@ exports.up = function(knex) {
       table.string('password', 255).notNullable()
       table.string('role', 255).notNullable()
       table.string('country', 255)
-      table.string('available', 255)
+      table.string('daysAvailable', 255)
+      table.string('timeAvailable', 255)
     })
 
     .createTable('tasks', table => {
       table.increments()
-      table.string('description').notNullable()
+      table.string('taskName').notNullable()
+      table.string('taskDescription').notNullable()
     })
 };
 
