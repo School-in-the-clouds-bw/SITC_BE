@@ -17,7 +17,7 @@ server.use(cookieParser());
 
 server.use('/api/auth', authRouter);
 server.use('/api/admin', authMiddleware(), adminRouter);
-server.use('/api/student', authMiddleware(), studentRouter);
+server.use('/api/student', studentRouter);
 server.use('/api/volunteer', authMiddleware(), volunteerRouter);
 
 server.get('/', (req, res) => {
