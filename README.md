@@ -41,3 +41,8 @@ https://school-in-the-cloud-be.herokuapp.com/api/admin/tasks/:id
 DELETE request to 
 
 https://school-in-the-cloud-be.herokuapp.com/api/admin/tasks/:id
+
+### EDIT profile by user id
+PUT request to 
+
+https://school-in-the-cloud-be.herokuapp.com/api/auth/users/:id
