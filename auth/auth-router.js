@@ -20,6 +20,25 @@ router.get('/users', async (req, res) => {
   }
 })
 
+
+// EDIT user by id
+router.put('/users/:id', async (req, res) => {
+  try {
+    const changes = req.body;
+    const updatedUser = await authModel.updateUser(req.params.id, changes)
+    res.status(201).json({
+      message: 'Updated profile'
+    })
+  } catch(err) {
+    logError(err)
+    res.status(500).json({
+      message: 'Server error, Could not update profile'
+    })
+  }
+})
+
+
+// REGISTER
 router.post('/register', async (req, res) => {
   try {
     const { email, username, password } = req.body;
@@ -55,6 +74,8 @@ router.post('/register', async (req, res) => {
   }
 })
 
+
+// LOGIN
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
