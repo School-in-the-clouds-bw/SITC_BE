@@ -1,7 +1,7 @@
 const db = require('../database/dbConfig.js');
 
 function getAllUsers() {
-  return db('users').select('name', 'email', 'role', 'daysAvailable', 'timeAvailable')
+  return db('users')
 }
 
 function updateUser(id, changes) {
