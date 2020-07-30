@@ -97,6 +97,7 @@ router.post('/login', async (req, res) => {
     res.cookie('token', token)
     res.json({
       message: `Hello ${username}`,
+      id: user.id,
       role: user.role,
       token: token 
     })
