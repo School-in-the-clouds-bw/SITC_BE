@@ -12,7 +12,9 @@ exports.seed = function(knex) {
           email: 'zaydo@gmail.com',
           password: 'zman',
           role: 'administrator',
-          country: 'usa'
+          country: 'usa',
+          daysAvailable: 'Monday, Tuesday Thursday, Saturday',
+          timeAvailable: '11am-3pm EST'
         },
         {
           name: 'Stacie Moore',
@@ -20,7 +22,9 @@ exports.seed = function(knex) {
           email: 'staciem@gmail.com',
           password: 'pw4598',
           role: 'volunteer',
-          country: 'brazil'
+          country: 'brazil',
+          daysAvailable: 'Tuesday, Thursday, Friday, Saturday',
+          timeAvailable: '8am-6pm EST'
         },
         {
           name: 'Elizabeth Lynce',
@@ -28,7 +32,9 @@ exports.seed = function(knex) {
           email: 'basketballislife@yahoo.com',
           password: 'toofast4u',
           role: 'student',
-          country: 'usa'
+          country: 'usa',
+          daysAvailable: 'Thursday, Friday, Saturday, Sunday',
+          timeAvailable: '6am-4pm EST'
         },
         {
           name: 'John Row',
@@ -36,7 +42,9 @@ exports.seed = function(knex) {
           email: 'jrow@gmail.com',
           password: 'pw123',
           role: 'volunteer',
-          country: 'usa'
+          country: 'usa',
+          daysAvailable: 'Monday, Wednesday, Thursday, Friday, Saturday',
+          timeAvailable: '10am-9pm EST'
         },
         {
           name: 'Abigail Smith',
@@ -44,7 +52,9 @@ exports.seed = function(knex) {
           email: 'agurl@gmail.com',
           password: 'pw123',
           role: 'volunteer',
-          country: 'usa'
+          country: 'usa',
+          daysAvailable: 'Monday, Wednesday, Thursday, Friday, Saturday',
+          timeAvailable: '2pm-9pm EST'
         },
         {
           name: 'Bill Mayzer',
@@ -52,7 +62,9 @@ exports.seed = function(knex) {
           email: 'bm289@gmail.com',
           password: 'pw123',
           role: 'administrator',
-          country: 'usa'
+          country: 'usa',
+          daysAvailable: 'Monday, Wednesday, Thursday, Friday, Saturday',
+          timeAvailable: '7am-5pm EST'
         },
         {
           name: 'Lizz StunYa',
@@ -60,7 +72,9 @@ exports.seed = function(knex) {
           email: 'missstunya@gmail.com',
           password: 'pw123',
           role: 'administrator',
-          country: 'europe'
+          country: 'europe',
+          daysAvailable: 'Monday, Tuesday, Wednesday, Thursday, Friday',
+          timeAvailable: '7am-5pm EST'
         },
         {
           name: 'Brandon Mundok',
@@ -68,7 +82,9 @@ exports.seed = function(knex) {
           email: 'racer290@gmail.com',
           password: 'pw123',
           role: 'student',
-          country: 'france'
+          country: 'france',
+          daysAvailable: 'Monday, Tuesday, Wednesday, Thursday, Friday',
+          timeAvailable: '7am-5pm EST'
         },
       ]);
     });

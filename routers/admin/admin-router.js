@@ -45,7 +45,9 @@ router.get('/tasks', async (req, res) => {
 router.put('/tasks/:id', async (req, res) => {
   try {
     const updatedTask = await adminModel.updateTaskById(req.params.id, req.body)
-    res.status(201).json(updatedTask)
+    res.status(201).json({
+      message: 'Task updated'
+    })
   } catch(err) {
     logError(err)
     res.status(500).json({
