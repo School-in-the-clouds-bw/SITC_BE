@@ -17,6 +17,16 @@ POST request to
 
 https://school-in-the-cloud-be.herokuapp.com/api/auth/login
 
+### GET all users
+GET request to 
+
+https://school-in-the-cloud-be.herokuapp.com/api/auth/users
+
+### GET user by id
+GET request to 
+
+https://school-in-the-cloud-be.herokuapp.com/api/auth/users/:id
+
 ### GET all volunteers
 GET request to
 
