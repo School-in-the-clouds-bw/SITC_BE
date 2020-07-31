@@ -4,6 +4,10 @@ function getAllUsers() {
   return db('users')
 }
 
+function getUserById(id) {
+  return db('users').where({ id }).first()
+}
+
 function updateUser(id, changes) {
   return db('users').where({ id }).update(changes)
 }
@@ -18,6 +22,7 @@ function findBy(filter) {
 
 module.exports = {
   getAllUsers,
+  getUserById,
   updateUser,
   addUser,
   findBy

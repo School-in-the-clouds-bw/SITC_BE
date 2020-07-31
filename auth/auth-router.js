@@ -8,6 +8,7 @@ function logError(err) {
   console.log('Error: ', err)
 }
 
+// GET all users
 router.get('/users', async (req, res) => {
   try {
     const users = await authModel.getAllUsers()
@@ -20,6 +21,18 @@ router.get('/users', async (req, res) => {
   }
 })
 
+// GET user by id
+router.get('/users/:id', async (req, res) => {
+  try {
+    const user = await authModel.getUserById(req.params.id)
+    res.status(200).json(user)
+  } catch(err) {
+    logError(err)
+    res.status(500).json({
+      message: 'Server error, could not get user'
+    })
+  }
+})
 
 // EDIT user by id
 router.put('/users/:id', async (req, res) => {
